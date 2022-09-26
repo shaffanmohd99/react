@@ -63,6 +63,13 @@ function App() {
         const timer=setInterval(()=>tick(),1000);
         return()=>clearInterval(timer);
       })
+  // const startTimer = () => {
+
+  //   const current = setInterval(() => {
+  //       setSecond(seconds => seconds - 1)
+  //   }, 1000)
+  //   tick()
+  // }
   
   
   // const [paused,setPaused]=useState(true)
@@ -88,10 +95,9 @@ function App() {
       {/* <Timer hour={hour} minute={minute} second={second}/> */}
       <DisplayTimer hour={hour} mins={minute} secs={second}/>
       <div style={{display:"flex",gap:"30px", justifyContent:"center",marginBottom:"50px"}}>
-        <MyButton onClick={()=>starter()} >Start</MyButton>
+        {/* <MyButton  >Start</MyButton> */}
         <MyButton onClick={()=>reset()} >Reset</MyButton>
-        <MyButton onClick={(e)=>getTimeRemaining(e)
-        } >testing</MyButton>
+        {/* <MyButton  >testing</MyButton> */}
 
       </div>
     
@@ -100,7 +106,7 @@ function App() {
         <input type="number" placeholder="Hour"/>
         <input max={"59"} min={"0"} type="number" placeholder="Minute"/>
         <input max={"59"} min={"0"} type="number" placeholder="Second"/>
-        <MyButton type="submit">Submit</MyButton>
+        <MyButton type="submit">Start</MyButton>
       </form>
 
     </div>
