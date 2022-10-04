@@ -1,4 +1,10 @@
+import useAuth from "../hooks/useAuth";
+
 const Home = () => {
+
+  // const { login }=UseAuth();
+  // const {login}=useAuth()
+
     return (
         <div 
           style={{
@@ -25,6 +31,7 @@ const Home = () => {
               </button>
               </div>
                 </div>
+                {/* <button onClick={() => login()}>Login</button> */}
             </div>
           </div>
         </div>
