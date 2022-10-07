@@ -21,8 +21,7 @@ function App() {
 // const {user}=UseAuth();
   return (
     <div >
-      <div>
-        <Routes>
+      <Routes>
             <Route index element={<SignIn />} />
             <Route path="login" element={<Login/>}></Route>
           <Route element={<ProtectedRoute><Layout /></ProtectedRoute>}>
@@ -35,7 +34,6 @@ function App() {
           <Route path="logout" element={<SuccessfullLogout/>}></Route>
             <Route path="*" element={<NoMatch />} />
         </Routes>
-      </div>
 
 
     </div>
