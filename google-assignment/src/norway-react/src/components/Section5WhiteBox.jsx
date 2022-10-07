@@ -1,4 +1,4 @@
-import WhiteBoxIdv from "./whiteBoxIdv"
+import WhiteBoxIdv from "./WhiteBoxIdv"
 
 const arr=[
     "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Possimus, rem!","Lorem ipsum dolor sit, amet consectetur adipisicing elit. Possimus, rem!","Lorem ipsum dolor sit, amet consectetur adipisicing elit. Possimus, rem!"
