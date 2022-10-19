@@ -20,7 +20,7 @@ export default (props) => {
   
     // login(data)
     props.navigation.navigate('test')
-    console.log("meow")
+    console.log("test")
 
   };
 
