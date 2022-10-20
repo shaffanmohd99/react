@@ -9,7 +9,7 @@ import { useEffect } from "react"
 const Ticket=()=>{
 
     const FetchAllTicket=()=>{
-        return axios.get('http://127.0.0.1:8000/api/lookup/ticket')
+        return axios.get('https://ticker-heroku.herokuapp.com/api/lookup/ticket')
     }
     const {data,isLoading,isError,error,refetch,...rest}=useQuery(["ticket"],FetchAllTicket,
     { 

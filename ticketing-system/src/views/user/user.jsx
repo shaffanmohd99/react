@@ -5,7 +5,7 @@ import {useMutation, useQuery, useQueryClient} from "@tanstack/react-query"
 import useAuth from '../../hooks/useAuth'
 const User=()=>{
     const fetchAllUser=()=>{
-        return axios.get('http://127.0.0.1:8000/api/lookup/user')
+        return axios.get('https://ticker-heroku.herokuapp.com/api/lookup/user')
     }
     const {data,isLoading,isError,error,refetch,...rest}=useQuery(["user"],fetchAllUser,
     { 

@@ -12,7 +12,7 @@ const MyDetails=()=>{
         headers:{Authorization:`Bearer ${token}`}
       }
     const FetchDetails=()=>{
-        return axios.get('http://127.0.0.1:8000/api/user',config)
+        return axios.get('https://ticker-heroku.herokuapp.com/api/user',config)
     }
     const {data,isLoading,isError,error,refetch,...rest}=useQuery(["detail"],FetchDetails,
     { 

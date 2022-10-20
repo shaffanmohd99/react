@@ -11,17 +11,6 @@ import { useQuery } from '@tanstack/react-query';
 import axios from 'axios';
 import DisplayTicket from './DisplayTicket';
 
-function createData(name, calories, fat, carbs, protein) {
-  return { name, calories, fat, carbs, protein };
-}
-
-const rows = [
-  createData('Frozen yoghurt', 159, 6.0, 24, 4.0),
-  createData('Ice cream sandwich', 237, 9.0, 37, 4.3),
-  createData('Eclair', 262, 16.0, 24, 6.0),
-  createData('Cupcake', 305, 3.7, 67, 4.3),
-  createData('Gingerbread', 356, 16.0, 49, 3.9),
-];
 
 export default function MyTickets() {
 
@@ -31,7 +20,7 @@ const config={
   headers:{Authorization:`Bearer ${token}`}
 }
 const FetchMyTicket=()=>{
-  return axios.get('http://127.0.0.1:8000/api/ticket',config)
+  return axios.get('https://ticker-heroku.herokuapp.com/api/ticket',config)
 }
 const {data,isLoading,isError,error,refetch,...rest}=useQuery(["myTicket"],FetchMyTicket,
 { 
