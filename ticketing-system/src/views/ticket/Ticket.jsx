@@ -30,11 +30,11 @@ const Ticket=()=>{
             flexDirection:"column",
             alignItems:"center",
             justifyContent:"center",
-            marginTop:"70px"
+            marginTop:"70px",
+            fontFamily:"poppins"
             // justifyContent:"sp"
         }}>
             <div style={{ display:"flex",flexDirection:"column",gap:"30px"}}>
-                <h1 style={{marginBottom:"10px"}}>Ticket page</h1>
             <div ><CreateTicket/></div>
             </div>
         </div>
@@ -48,7 +48,7 @@ const Ticket=()=>{
                 justifyContent:"center",
                 gap:"30px"
                 }}
-                >``
+                >
                     {data?.data.map((item)=>
                     
                         <DisplayTicket ID={item.ticket_id} title={item.title} assign={item.assigned_to} category={item.category} status={item.status_type

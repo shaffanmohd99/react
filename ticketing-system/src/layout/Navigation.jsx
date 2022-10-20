@@ -1,3 +1,4 @@
+import useAuth from '../hooks/useAuth';
 import { Link, NavLink } from 'react-router-dom';
 // import useAuth from '../hooks/useAuth';
 
@@ -10,7 +11,8 @@ const Navigation = () => {
         fontSize:"20px"
       });
 
-      // const { logout, token } = useAuth();
+
+const{role,logout}=useAuth()
 
     return (
       <div style={{
@@ -22,7 +24,7 @@ const Navigation = () => {
         top:"0px",
         left:"0px",
         padding:"10px 50px 0px 50px",
-        zIndex:"1"
+        zIndex:"0"
         // display:'flex',
         // alignItems:"center",
         // justifyContent:"center",
@@ -47,8 +49,8 @@ const Navigation = () => {
                 }}
               >
           
-                <NavLink style={style} to="/user">User</NavLink>
-                <NavLink style={style} to="/ticket">Ticket</NavLink>
+               {role==="admin"? <NavLink style={style} to="/user">User</NavLink>:null}
+               {role==="admin"?  <NavLink style={style} to="/ticket">Ticket</NavLink>:null}
             
               </nav>
               {/* {token ? <button onClick={() => logout()}>Logout</button> : null} */}
@@ -68,6 +70,7 @@ const Navigation = () => {
                 >
                             <NavLink style={style} to="/home">Google</NavLink>
                 </nav> */}
+                <NavLink style={style} to="/my-detail">My Details</NavLink>
                               <button onClick={() => logout()}
                              style={{
                               all:"unset",

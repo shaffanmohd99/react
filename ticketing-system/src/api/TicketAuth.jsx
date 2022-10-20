@@ -15,9 +15,9 @@ export const destroyTicket = async (ticketID,config) => {
     return res;
   }
 
-  export const editTicket = async (ticketID,config) => {
+  export const editTicket = async (ticketID,values,config) => {
     const res = await edit(
-      `http://127.0.0.1:8000/api/admin/ticket/${ticketID}`,config
+      `http://127.0.0.1:8000/api/admin/ticket/${ticketID}`,values,config
     );
     return res;
   }

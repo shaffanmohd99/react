@@ -61,11 +61,13 @@ const RegisterPart2=()=>{
               marginTop:"70px"
           }}
           >
-              <Welcome title={"Welcome to your ticketing system"} desc1={"Sign up or "} button={"Login"} desc2={"now"} margin="150px" click={click}/>
+              <div className='hidden sm:block'>
+                <Welcome title={"Welcome to your ticketing system"} desc1={"Sign up or "} button={"Login"} desc2={"now"} margin="150px" click={click}/>
+              </div>
 
               <div style={{
                 width: "350px",
-                height: "600px",
+                height: "630px",
                   borderRadius: "20px",
                   padding: "40px",
                   boxShadow: "14px 14px 20px #cbced1, -14px -14px 20px",
@@ -166,30 +168,14 @@ const RegisterPart2=()=>{
                     helperText={formik.touched.password && formik.errors.password}
               
                   />
-                    {/* <FormControl>
-                                <Select
-                    id="role"
-                    name="role"
-                    value={age}
-                    label="AHEHEHEHEHEHEHEEH"
-                    onChange={handleChange}
-                    sx={{'& .MuiOutlinedInput-input': {
-              
-                        border:"2px solid",
-                        borderColor:"#1DA1F2"
-                      }}}
-              
-                  >
-                      <MenuItem value="admin">Admin</MenuItem>
-                        <MenuItem value="user">User</MenuItem>
-              
-                  </Select>
-              
-                  </FormControl>   */}
-                                {/* <MyTextField id={email}/> */}
+                    
                   <Button color="primary" variant="contained" fullWidth type="submit">
                     Submit
                   </Button>
+                  <div className='block sm:hidden'>
+                    <h3 style={{fontSize:"12px",textAlign:"center",}} >Already have an account? </h3>
+                    <h3 style={{fontSize:"12px"}}><a style={{color:"#1DA1F2",cursor:"pointer"}} onClick={click}>Login</a> now</h3>
+                  </div>
                 </form>
               </div>
             </div>

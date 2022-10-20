@@ -10,23 +10,29 @@ import User from './views/user/user'
 import Layout from './layout/layouts'
 import RegisterPart2 from './views/RegisterPart2'
 import LoginPart2 from './views/LoginPart2'
+import UserRole from './views/userRole/UserRole'
+import ProtectedRoute from './routes/ProtectedRoute'
+import useAuth from './hooks/useAuth'
+import ProtectedRouteAdmin from './routes/ProtectedRouteAdmin'
 function App() {
   
-
+const {role}=useAuth()
   return (
     <div >
      <Routes>
             <Route index element={<RegisterPart2 />} />
             <Route path="login" element={<LoginPart2/>}></Route>
-            <Route path="register" element={<RegisterPart2 />} />
+            <Route path="register" element={<ProtectedRoute><RegisterPart2 /> </ProtectedRoute>} />
           <Route element={<Layout />}>
-            <Route path="ticket" element={<Ticket/>}></Route>
-            <Route path="user" element={<User />} />
-            {/* <Route path="about" element={<ProtectedRoute><About /></ProtectedRoute>} />
-            <Route path="norway" element={<ProtectedRoute><Norway /></ProtectedRoute>} />
-            <Route path="randomuser" element={<ProtectedRoute><RandomUser/></ProtectedRoute>} /> */}
+            
+            <Route path="my-detail" element={<ProtectedRoute><UserRole/></ProtectedRoute>}></Route>
+
+            <Route path="ticket" element={<ProtectedRouteAdmin><Ticket/></ProtectedRouteAdmin>}></Route>
+
+            <Route path="user" element={<ProtectedRouteAdmin><User/></ProtectedRouteAdmin>} />
+           
           </Route>
-          {/* <Route path="logout" element={<SuccessfullLogout/>}></Route> */}
+         
             <Route path="*" element={<NoMatch />} />
         </Routes>
     </div>

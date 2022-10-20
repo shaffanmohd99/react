@@ -2,6 +2,7 @@ import UserTable from '../../components/UserTable'
 import UserNavigation from '../../layout/user/UserNavigation'
 import axios from "axios"
 import {useMutation, useQuery, useQueryClient} from "@tanstack/react-query"
+import useAuth from '../../hooks/useAuth'
 const User=()=>{
     const fetchAllUser=()=>{
         return axios.get('http://127.0.0.1:8000/api/lookup/user')
@@ -12,6 +13,7 @@ const User=()=>{
     }
     
     )
+    
     
     // data.data.map((item)=>
     // console.log(item.name)
@@ -29,7 +31,7 @@ const User=()=>{
                
                {
                 data?.data.map((item)=>
-                    <UserTable width={"1200px"} name={item.name} email={item.email} role={item.role} />
+                    <UserTable ID={item.id} name={item.name} email={item.email} roles={item.role} />
                 )
                }
             

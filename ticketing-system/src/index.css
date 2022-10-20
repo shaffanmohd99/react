@@ -69,6 +69,9 @@ button:focus-visible {
   }
 } */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;900&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 *{
   margin: 0;
@@ -85,7 +88,14 @@ body{
   overflow-x: hidden;
   font-family: poppins;
 }
-
+h3{
+  font-family: poppins;
+  font-weight: 900;
+}
+h1{
+  font-family: poppins;
+  font-weight: 700;
+}
 input {
   background: #ecf0f3;
   padding: 10px;

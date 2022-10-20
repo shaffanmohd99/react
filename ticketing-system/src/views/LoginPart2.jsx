@@ -61,7 +61,9 @@ const LoginPart2=()=>{
               marginTop:"70px"
           }}
           >
-          <Welcome  margin="150px" title={"Do not have an account yet?"} desc1={""} button={"Sign Up"} desc2={"now"} click={click}/>
+          <div className='hidden sm:block'>
+            <Welcome  margin="150px" title={"Do not have an account yet?"} desc1={""} button={"Sign Up"} desc2={"now"} click={click}/>
+          </div>
 
               <div style={{
                 width: "350px",
@@ -124,11 +126,15 @@ const LoginPart2=()=>{
               
                   />
                    
+                  <h3 style={{fontSize:"12px",textAlign:"center",color:"red",fontWeight:"100"}} >{errorLogin}</h3>
                              
                   <Button color="primary" variant="contained" fullWidth type="submit">
                     Submit
                   </Button>
-                  <h3 style={{fontSize:"15px",textAlign:"center"}} >{errorLogin}</h3>
+                  <div className='block sm:hidden'>
+                    <h3 style={{fontSize:"12px",textAlign:"center",}} >Do not have an account yet? </h3>
+                    <h3 style={{fontSize:"12px"}}><a style={{color:"#1DA1F2",cursor:"pointer"}} onClick={click}>Sign up</a> now</h3>
+                  </div>
                 </form>
               </div>
             </div>
