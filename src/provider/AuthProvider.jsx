@@ -1,22 +1,32 @@
 import AuthContext from "../contexts/AuthContext";
 import { LoginUser } from "../api/loginAuth";
+import { useState } from "react";
 
-const AuthProvider=({children})=>{
-
+const AuthProvider=(props)=>{
+    const [token,setToken]=useState(null)
+    const [sucessLogin,setSucessLogin]=useState(null)
     const login=async(userLogin)=>{
         const {data}=await LoginUser(userLogin)
         if(data.message==='Success login' && data.data.token){
             console.log("yeay")
-            console.log(data)
+            // console.log(data)
+            setSucessLogin(true)
+            
+            
+        }
+        else{
+            setSucessLogin(false)
         }
     }
 
     return (
         <AuthContext.Provider value={{
             login,
+            sucessLogin,
+            setSucessLogin,
         }}
         >
-            {children}
+            {props.children}
         </AuthContext.Provider>
     )
 }

@@ -10,11 +10,11 @@ const ticketingStack=createNativeStackNavigator()
 const Navigation=()=>{
     return(
         <NavigationContainer>
-            <ticketingStack.Navigator initialRouteName='form'>
-                <ticketingStack.Screen name={'form'} component={RegisterForm}/>
-                <ticketingStack.Screen name={'user'} component={User}/>
-                <ticketingStack.Screen name={'ticket'} component={Ticket}/>
-                <ticketingStack.Screen name={'test'} component={BottomNavigator}/>
+            <ticketingStack.Navigator initialRouteName='Login'>
+                <ticketingStack.Screen name={'Login'} component={RegisterForm}/>
+                <ticketingStack.Screen name={'User'} component={User}/>
+                <ticketingStack.Screen name={'Ticket'} component={Ticket}/>
+                <ticketingStack.Screen name={'Ticketing System'} component={BottomNavigator}/>
             </ticketingStack.Navigator>
         </NavigationContainer>
 

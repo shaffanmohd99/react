@@ -4,25 +4,28 @@ import { useForm, Controller } from 'react-hook-form';
 import Constants from 'expo-constants';
 import AuthProvider from '../provider/AuthProvider';
 import UseAuth from '../hooks/UseAuth'
+import { useState } from 'react';
 
 export default (props) => {
-  const {login}=UseAuth()
-  const onPress=()=>{
-    props.navigation.navigate('test')
-  }
+  const {login,sucessLogin}=UseAuth()
+ 
   const { register, setValue, handleSubmit, control, reset, formState: { errors } } = useForm({
     defaultValues: {
       email: '',
       password: ''
     }
   });
-  const onSubmit = data => {
-  
-    // login(data)
-    props.navigation.navigate('test')
-    console.log("test")
+  const onSubmit = async (data) => {
+    
+    login(data)
+    
+    
 
   };
+  if(sucessLogin===true){
+    props.navigation.navigate('Ticketing System')
+  }
+  
 
   const onChange = arg => {
     return {
@@ -55,6 +58,7 @@ export default (props) => {
           control={control}
           render={({field: { onChange, onBlur, value }}) => (
             <TextInput
+            secureTextEntry={true}
               style={styles.input}
               onBlur={onBlur}
               onChangeText={value => onChange(value)}
@@ -64,19 +68,7 @@ export default (props) => {
           name="password"
           rules={{ required: true }}
         />
-        {/* <View style={styles.button}>
-          <Button
-            style={styles.buttonInner}
-            color
-            title="Reset"
-            onPress={() => {
-              reset({
-                email: 'Bill',
-                password: 'Luo'
-              })
-            }}
-          />
-        </View> */}
+          {sucessLogin===false? <Text style={{color:"red"}}>Password and email do not match</Text>:null}
         <View style={styles.button}>
           <Button
             style={styles.buttonInner}

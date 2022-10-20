@@ -3,15 +3,17 @@ import { useState } from "react"
 import { FlatList, SafeAreaView, StyleSheet, Text, View } from "react-native"
 import { getUser } from "../api/api"
 import {  GetUser } from "../api/UserApi"
+import UseAuth from "../hooks/UseAuth"
 
 const User=()=>{
-
+    const {setSucessLogin}=UseAuth()
+    setSucessLogin(null)
     const [isLoading, setLoading] = useState(true);
   const [data, setData] = useState([]);
 
   const getUser = async () => {
     try {
-     const response = await fetch('https://5080-49-124-200-218.ap.ngrok.io/api/lookup/user');
+     const response = await fetch('https://925e-14-192-212-236.ap.ngrok.io/api/lookup/user');
      const json = await response.json();
      setData(json);
    } catch (error) {

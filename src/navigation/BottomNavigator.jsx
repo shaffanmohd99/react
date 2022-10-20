@@ -5,9 +5,19 @@ import User from '../views/User';
 const BottomNavigator=()=>{
     const Tab = createBottomTabNavigator();
     return(
-        <Tab.Navigator>
-            <Tab.Screen name='user' component={User}/>
-            <Tab.Screen name='ticker' component={Ticket}/>
+        <Tab.Navigator 
+        screenOptions={{
+            tabBarIconStyle: { display: "none" 
+            },
+            tabBarLabelStyle: {
+                fontWeight: "700",
+                fontSize: 15,
+                marginBottom:15,
+            
+              },
+            }}>
+            <Tab.Screen name='User' component={User}/>
+            <Tab.Screen name='Ticket' component={Ticket}/>
         </Tab.Navigator>
 
     )
