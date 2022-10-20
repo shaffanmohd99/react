@@ -1,7 +1,6 @@
 import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import './App.css'
-import Register from './Views/Register'
 import Login from './views/Login'
 import { Route, Routes } from 'react-router-dom'
 import NoMatch from './views/NoMatch'
