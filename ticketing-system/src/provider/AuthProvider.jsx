@@ -7,6 +7,7 @@ import AuthContext from "../contexts/AuthContext";
 import { CreateTicket, destroyTicket, editTicket } from "../api/TicketAuth";
 import { destroyUser, editUser } from "../api/userAuth";
 import { fetchUserRole } from "../api/UserRoleAuth";
+import MySnackbar from "../components/MySnackbar";
 
 const AuthProvider = ({ children }) => {
   const [token, setToken] = useState(null);
@@ -51,11 +52,20 @@ const AuthProvider = ({ children }) => {
 
   const CreateNewTicket=async(ticket,config)=>{
     const {data}=await CreateTicket(ticket,config)
-    console.log(data)
+    if(data.data.ticket_id){
+      alert("Succesfully created a new ticket")
+    }
+    else{
+      alert("Create ticket Failed")
+    }
+    
   }
 
 const deleteTicket=async(id,config)=>{
   const {data}=await destroyTicket(id,config)
+  if(data===""){
+    alert("Delete ticket succesful")
+  }
   console.log(data)
 }
 
@@ -66,6 +76,9 @@ const updateTicket=async (id,values,config)=>{
 
 const deleteUser=async(id,config)=>{
   const {data}=await destroyUser(id,config)
+  if(data===""){
+    alert("Delete user succesful")
+  }
   console.log(data)
 }
 

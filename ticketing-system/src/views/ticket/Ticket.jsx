@@ -5,6 +5,7 @@ import UserNavigation from "../../layout/user/UserNavigation"
 import axios from "axios"
 import { useQuery } from "@tanstack/react-query"
 import { useEffect } from "react"
+import MySnackbar from "../../components/MySnackbar"
 
 const Ticket=()=>{
 
@@ -49,6 +50,7 @@ const Ticket=()=>{
                 gap:"30px"
                 }}
                 >
+                    
                     {data?.data.map((item)=>
                     
                         <DisplayTicket ID={item.ticket_id} title={item.title} assign={item.assigned_to} category={item.category} status={item.status_type

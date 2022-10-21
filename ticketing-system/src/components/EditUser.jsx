@@ -67,7 +67,7 @@ const handleClose = () => {
       
     return(
         <div>
-            { role==='admin'?<h3  onClick={handleClickOpen} >Edit</h3>:null}
+            { role==='admin'?<h3 className='cursor-pointer hover:text-[#1DA1F2]' onClick={handleClickOpen} >Edit</h3>:null}
             <Dialog  maxWidth={'fit-content'}  open={open} onClose={handleClose}>
                 <div style={{
                   display:"flex",

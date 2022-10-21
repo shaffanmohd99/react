@@ -10,6 +10,7 @@ import {useMutation, useQuery, useQueryClient} from "@tanstack/react-query"
 import { get } from '../api';
 import useAuth from '../hooks/useAuth';
 import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
+import MySnackbar from './MySnackbar';
 
 
 const validationSchema = yup.object({
@@ -68,11 +69,11 @@ const {data,isLoading,isError,error,refetch,...rest}=useQuery(["user"],fetchAllU
         },
         validationSchema: validationSchema,
         onSubmit: (values) => {
-          console.log(token)
+          console.log(values)
           CreateNewTicket(values,config)
           refetch()
-          // const {data}=postRegister(values)
-          // mutate(data)
+          setOpen(false);
+          <MySnackbar/>
          
         },
       });
@@ -80,8 +81,7 @@ const {data,isLoading,isError,error,refetch,...rest}=useQuery(["user"],fetchAllU
       const [open, setOpen] = React.useState(false);
       const handleClickOpen = (e) => {
         setOpen(true);
-        console.log("mew")
-        // console.log(data)
+    
       
         
       };
@@ -271,7 +271,7 @@ const {data,isLoading,isError,error,refetch,...rest}=useQuery(["user"],fetchAllU
                           )}
                         </TextField>
                     </div>
-                    <Button sx={{zIndex:"1"}} color="primary" variant="contained" fullWidth type="submit">
+                    <Button  sx={{zIndex:"1"}} color="primary" variant="contained" fullWidth type="submit">
                       Submit
                     </Button>
                   </form>

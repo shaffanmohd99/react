@@ -22,7 +22,7 @@ const DeleteUser=({ID})=>{
   };
     return (
         <div>
-      <h3 onClick={handleClickOpen}>Delete</h3>
+      <h3  className="cursor-pointer mx-2 hover:text-[red]" onClick={handleClickOpen}>Delete</h3>
       <Dialog
         open={open} 
         onClose={handleClose}
@@ -38,9 +38,9 @@ const DeleteUser=({ID})=>{
           </DialogContentText>
         </DialogContent>
         <DialogActions>
-          <Button onClick={handleClose}  color="primary" variant="contained">Disagree</Button>
-          <Button onClick={handleCloseDelete} autoFocus  color="primary" variant="contained">
-            Agree
+          <Button onClick={handleClose}  color="primary" variant="contained">No</Button>
+          <Button onClick={handleCloseDelete}   color="error" variant="contained">
+            Yes
           </Button>
         </DialogActions>
       </Dialog>

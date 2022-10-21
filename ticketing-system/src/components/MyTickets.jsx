@@ -10,11 +10,14 @@ import useAuth from '../hooks/useAuth';
 import { useQuery } from '@tanstack/react-query';
 import axios from 'axios';
 import DisplayTicket from './DisplayTicket';
+import EditTicket from './EditTicket';
+import DeleteTicket from './DeletetTicket';
+
 
 
 export default function MyTickets() {
 
-    const {token}=useAuth()
+    const {token,role}=useAuth()
     
 const config={
   headers:{Authorization:`Bearer ${token}`}
@@ -30,9 +33,10 @@ const {data,isLoading,isError,error,refetch,...rest}=useQuery(["myTicket"],Fetch
 })
 
 
+
   return (
     <div>
-      <div className='w-[auto]  justify-items-center hidden sm:flex'>
+      <div className='w-[auto]  justify-items-center my-[50px] hidden sm:flex'>
         <TableContainer component={Paper}>
           <Table sx={{ minWidth: 50 }} aria-label="simple table">
             <TableHead>
@@ -44,6 +48,7 @@ const {data,isLoading,isError,error,refetch,...rest}=useQuery(["myTicket"],Fetch
                 <TableCell sx={{color:"white"}} align="left">Priority Level</TableCell>
                 <TableCell sx={{color:"white"}} align="left">Status</TableCell>
                 <TableCell  sx={{color:"white"}} align="left">Assign To</TableCell>
+                {role==="admin"? <TableCell  sx={{color:"white"}} align="left"></TableCell>:null}
               </TableRow>
             </TableHead>
             <TableBody >
@@ -57,8 +62,21 @@ const {data,isLoading,isError,error,refetch,...rest}=useQuery(["myTicket"],Fetch
                         <TableCell sx={{textTransform:"capitalize"}}align="left">{item.priority_level}</TableCell>
                         <TableCell sx={{textTransform:"capitalize"}}align="left">{item.status_type}</TableCell>
                         <TableCell  align="left">{item.assigned_to}</TableCell>
+                        {role==="admin"? <TableCell  align="center">
+                          <EditTicket 
+                        title={item.title} 
+                        status={item.status_type} 
+                        description={item.description} 
+                        priorityLevel={item.priority_level}
+                        category={item.category}
+                        ID={item.ticket_id}
+                        assign={item.assigned_to}
+                        /> 
+                        <DeleteTicket ID={item.ticket_id}/>
+                        </TableCell>:null}
       
                     </TableRow>
+                    
                     )
                 }
             </TableBody>

@@ -132,6 +132,7 @@ const assignID=(assign)=>{
         validationSchema: validationSchema,
         onSubmit: (values) => {
           updateTicket(ID,JSON. stringify(values),config)
+          setOpen(false);
         
          
         },
@@ -210,7 +211,7 @@ const assignID=(assign)=>{
      
     return(
         <div>
-            <h3  onClick={handleClickOpen} >Edit</h3>
+            <h3  className='cursor-pointer hover:text-[#1DA1F2]'onClick={handleClickOpen} >Edit</h3>
             <Dialog maxWidth={'fit-content'} open={open} onClose={handleClose}>
                 <div style={{
                   display:"flex",
