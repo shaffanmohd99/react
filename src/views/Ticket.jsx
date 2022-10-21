@@ -8,7 +8,7 @@ const Ticket=()=>{
   
     const getTicket = async () => {
       try {
-       const response = await fetch('https://925e-14-192-212-236.ap.ngrok.io/api/lookup/ticket');
+       const response = await fetch('https://ticker-heroku.herokuapp.com/api/lookup/ticket');
        const json = await response.json();
        setData(json);
      } catch (error) {

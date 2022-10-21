@@ -21,7 +21,8 @@
     "react-hook-form": "^7.37.0",
     "react-native": "0.69.6",
     "react-native-table-component": "^1.2.2",
-    "yup": "^0.32.11"
+    "yup": "^0.32.11",
+    "expo-updates": "~0.14.6"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9",

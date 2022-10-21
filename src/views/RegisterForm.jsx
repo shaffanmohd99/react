@@ -17,14 +17,15 @@ export default (props) => {
   });
   const onSubmit = async (data) => {
     
-    login(data)
-    
+    login(data,props)
+    // props.navigation.navigate('Ticketing System')
     
 
   };
-  if(sucessLogin===true){
-    props.navigation.navigate('Ticketing System')
-  }
+  // if(sucessLogin===true){
+  //   props.navigation.navigate('Ticketing System')
+  // }
+  // React.useEffect(()=>{props.navigation.navigate('Ticketing System'),[sucessLogin]})
   
 
   const onChange = arg => {
